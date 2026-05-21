@@ -37,10 +37,13 @@ const projects = [
   ],
 
   screenshots: [
-    project1,
-    project2,
-    project1,
-  ],
+  project1,
+  project2,
+  project1,
+  project2,
+  project1,
+  project2,
+],
 
   process: `
     The project was designed to automate repetitive
@@ -87,10 +90,13 @@ const projects = [
   ],
 
   screenshots: [
-    project1,
-    project2,
-    project1,
-  ],
+  project1,
+  project2,
+  project1,
+  project2,
+  project1,
+  project2,
+],
 
   process: `
     The project was designed to automate repetitive

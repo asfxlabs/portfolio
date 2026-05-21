@@ -1,4 +1,7 @@
-import React from 'react'
+import React, {
+  useRef,
+  useState,
+} from 'react'
 
 import {
   useParams,
@@ -17,6 +20,12 @@ function ProjectDetails() {
   const project = projects.find(
     (p) => p.slug === slug
   )
+  const imageRef = useRef(null)
+
+const [glow, setGlow] = useState({
+  x: 50,
+  y: 50,
+})
 
   if (!project) {
 
@@ -38,6 +47,35 @@ function ProjectDetails() {
     )
 
   }
+
+  const handleMouseMove = (e) => {
+
+  if (window.innerWidth < 768) return
+
+  const rect =
+    imageRef.current.getBoundingClientRect()
+
+  const x =
+    e.clientX - rect.left
+
+  const y =
+    e.clientY - rect.top
+
+  setGlow({
+    x: (x / rect.width) * 100,
+    y: (y / rect.height) * 100,
+  })
+
+}
+
+const resetGlow = () => {
+
+  setGlow({
+    x: 50,
+    y: 50,
+  })
+
+}
 
   return (
     <div
@@ -160,6 +198,12 @@ function ProjectDetails() {
 
         {/* Hero Image */}
         <motion.div
+        
+  ref={imageRef}
+
+  onMouseMove={handleMouseMove}
+
+  onMouseLeave={resetGlow}
           initial={{
             opacity: 0,
             scale: 0.95,
@@ -176,6 +220,7 @@ function ProjectDetails() {
           }}
 
           className="
+            relative
             mt-16
             overflow-hidden
             rounded-[36px]
@@ -195,6 +240,44 @@ function ProjectDetails() {
               object-cover
             "
           />
+          {/* Cursor Reflection */}
+<motion.div
+  animate={{
+    background: `
+      radial-gradient(
+        circle at
+        ${glow.x}% ${glow.y}%,
+        rgba(255,255,255,0.22),
+        transparent 35%
+      )
+    `,
+  }}
+
+  transition={{
+    duration: 0.12,
+  }}
+
+  className="
+    absolute
+    inset-0
+    pointer-events-none
+    z-10
+  "
+/>
+
+{/* Soft Gradient Overlay */}
+<div
+  className="
+    absolute
+    inset-0
+    bg-gradient-to-t
+    from-black/30
+    via-transparent
+    to-white/[0.03]
+    pointer-events-none
+    z-10
+  "
+/>
 
         </motion.div>
 
@@ -436,11 +519,23 @@ function ProjectDetails() {
 
     className="
       text-4xl
-      font-bold
+md:text-5xl
+font-extrabold
+tracking-[-0.04em]
       mb-12
     "
   >
-    Key Features
+    <span
+  className="
+    bg-gradient-to-r
+    from-white
+    to-purple-300
+    bg-clip-text
+    text-transparent
+  "
+>
+  Key Features
+</span>
   </motion.h2>
 
   <div
@@ -479,20 +574,53 @@ function ProjectDetails() {
         }}
 
         className="
-          rounded-[28px]
-          border
-          border-white/10
-          bg-white/5
-          backdrop-blur-xl
-          p-6
-        "
+  relative
+  overflow-hidden
+  rounded-[32px]
+  border
+  border-white/10
+  bg-white/[0.04]
+  backdrop-blur-2xl
+  p-8
+  group
+"
       >
+
+{/* Reflection */}
+<div
+  className="
+    absolute
+    inset-0
+    bg-gradient-to-b
+    from-white/[0.08]
+    to-transparent
+    opacity-50
+    pointer-events-none
+  "
+/>
+
+{/* Number */}
+<div
+  className="
+    text-purple-400
+    text-sm
+    tracking-[0.3em]
+    uppercase
+    mb-6
+  "
+>
+  0{index + 1}
+</div>
 
         <p
           className="
-            text-lg
-            text-white/90
-          "
+  relative
+  z-10
+  text-xl
+  font-medium
+  text-white
+  leading-8
+"
         >
           {feature}
         </p>
@@ -525,11 +653,23 @@ function ProjectDetails() {
 
     className="
       text-4xl
-      font-bold
-      mb-10
+md:text-5xl
+font-extrabold
+tracking-[-0.04em]
+      mb-12
     "
   >
+    <span
+  className="
+    bg-gradient-to-r
+    from-white
+    to-purple-300
+    bg-clip-text
+    text-transparent
+  "
+>
     Development Process
+    </span>
   </motion.h2>
 
   <motion.p
@@ -578,11 +718,23 @@ function ProjectDetails() {
 
     className="
       text-4xl
-      font-bold
-      mb-10
+md:text-5xl
+font-extrabold
+tracking-[-0.04em]
+      mb-12
     "
   >
+    <span
+  className="
+    bg-gradient-to-r
+    from-white
+    to-purple-300
+    bg-clip-text
+    text-transparent
+  "
+>
     Challenges & Solutions
+    </span>
   </motion.h2>
 
   <motion.p
