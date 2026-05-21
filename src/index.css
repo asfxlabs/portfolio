@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+body {
+  margin: 0;
+  background: #050816;
+  color: white;
+  font-family: 'Sora', sans-serif;
+}
+
+::selection {
+  background: #a855f7;
+  color: white;
+}
