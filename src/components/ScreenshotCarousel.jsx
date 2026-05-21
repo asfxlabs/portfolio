@@ -43,7 +43,8 @@ function ScreenshotCarousel({ images }) {
     <div
       className="
         relative
-        h-[700px]
+        h-[320px]
+        md:h-[700px]
         flex
         items-center
         justify-center
@@ -54,8 +55,8 @@ function ScreenshotCarousel({ images }) {
       {/* Ambient Glow */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.25, 0.4, 0.25],
+          scale: [1, 1.15, 1],
+          opacity: [0.2, 0.35, 0.2],
         }}
 
         transition={{
@@ -65,11 +66,14 @@ function ScreenshotCarousel({ images }) {
 
         className="
           absolute
-          w-[700px]
-          h-[700px]
+          w-[300px]
+          h-[300px]
+          md:w-[700px]
+          md:h-[700px]
           rounded-full
           bg-purple-500/20
-          blur-[140px]
+          blur-[100px]
+          md:blur-[140px]
           z-0
         "
       />
@@ -85,11 +89,10 @@ function ScreenshotCarousel({ images }) {
         }}
 
         animate={{
-          opacity: 0.18,
-          scale: 0.78,
-          x: -420,
-          rotateY: 20,
-          filter: 'blur(5px)',
+          opacity: 0.15,
+          scale: 0.75,
+          x: window.innerWidth < 768 ? -140 : -420,
+          filter: 'blur(4px)',
         }}
 
         transition={{
@@ -99,8 +102,10 @@ function ScreenshotCarousel({ images }) {
 
         className="
           absolute
-          w-[42%]
-          rounded-[36px]
+          w-[55%]
+          md:w-[42%]
+          rounded-[24px]
+          md:rounded-[36px]
           cursor-pointer
           z-10
           select-none
@@ -120,13 +125,13 @@ function ScreenshotCarousel({ images }) {
 
           initial={{
             opacity: 0,
-            scale: 0.85,
-            y: 40,
+            scale: 0.9,
+            y: 20,
           }}
 
           animate={{
             opacity: 1,
-            scale: paused ? 1.28 : 1.02,
+            scale: paused ? 1.18 : 1,
             y: 0,
           }}
 
@@ -142,8 +147,10 @@ function ScreenshotCarousel({ images }) {
 
           className="
             absolute
-            w-[72%]
-            rounded-[40px]
+            w-[88%]
+            md:w-[72%]
+            rounded-[28px]
+            md:rounded-[40px]
             border
             border-white/10
             shadow-2xl
@@ -166,11 +173,10 @@ function ScreenshotCarousel({ images }) {
         }}
 
         animate={{
-          opacity: 0.18,
-          scale: 0.78,
-          x: 420,
-          rotateY: -20,
-          filter: 'blur(5px)',
+          opacity: 0.15,
+          scale: 0.75,
+          x: window.innerWidth < 768 ? 140 : 420,
+          filter: 'blur(4px)',
         }}
 
         transition={{
@@ -180,19 +186,22 @@ function ScreenshotCarousel({ images }) {
 
         className="
           absolute
-          w-[42%]
-          rounded-[36px]
+          w-[55%]
+          md:w-[42%]
+          rounded-[24px]
+          md:rounded-[36px]
           cursor-pointer
           z-10
           select-none
         "
       />
 
-      {/* Floating Indicators */}
+      {/* Indicators */}
       <div
         className="
           absolute
-          bottom-8
+          bottom-2
+          md:bottom-8
           flex
           gap-3
           z-40
