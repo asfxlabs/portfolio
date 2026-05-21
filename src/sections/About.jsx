@@ -181,7 +181,8 @@ function About() {
             className="
               text-5xl
               md:text-7xl
-              font-black
+              font-extrabold
+              tracking-[-0.04em]
               mt-6
               leading-tight
             "
@@ -191,6 +192,7 @@ function About() {
               className="
                 text-transparent
                 bg-clip-text
+                drop-shadow-[0_0_20px_rgba(168,85,247,0.25)]
                 bg-gradient-to-r
                 from-purple-400
                 to-cyan-400
@@ -207,15 +209,15 @@ function About() {
 
           <p
             className="
-              text-gray-300
+              text-white
               text-lg
-              leading-9
+              leading-[2.2]
               max-w-4xl
               mx-auto
               mt-8
             "
           >
-            Specialized in video editing, graphic design, web application development, YouTube content optimization, and LMS administration. Experienced in building modern web applications, developing scalable digital solutions, and creating high-quality multimedia content.Proven ability to streamline workflows, improve content performance, manage e-learning platforms, and deliver engaging digital experiences across both technical and creative domains.
+            Specialized in video editing, graphic design, web application development, YouTube content optimization, and LMS administration. Experienced in building modern web applications, developing scalable digital solutions, and creating high-quality multimedia content. Proven ability to streamline workflows, improve content performance, manage e-learning platforms, and deliver engaging digital experiences across both technical and creative domains.
           </p>
 
         </motion.div>
@@ -243,7 +245,7 @@ function About() {
               className="
                 bg-white/5
                 border
-                border-white/10
+                border-white/15                
                 backdrop-blur-xl
                 rounded-3xl
                 p-6
@@ -263,7 +265,7 @@ function About() {
                 {item[0]}
               </h3>
 
-              <p className="text-gray-400 mt-2">
+              <p className="text-white mt-2">
                 {item[1]}
               </p>
 
@@ -310,7 +312,7 @@ function About() {
           bg-[#0b1220]/90
           backdrop-blur-xl
           border
-          border-white/10
+          border-white/15          
           rounded-[32px]
           px-8
           py-7
@@ -324,9 +326,11 @@ function About() {
             font-bold
             mb-8
             text-transparent
-            bg-clip-text
-            bg-gradient-to-r
-            ${category.gradient}
+bg-clip-text
+bg-gradient-to-r
+drop-shadow-[0_0_18px_rgba(168,85,247,0.35)]
+brightness-125
+${category.gradient}
           `}
         >
           {category.title}
@@ -355,17 +359,26 @@ transition={{
               className="
   relative
   overflow-hidden
-  bg-white/[0.04]
+  bg-white/[0.07]
   border
-  border-white/10
+  border-white/15
   rounded-2xl
   px-4
   py-3
   min-w-[150px]
   w-fit
   hover:border-purple-400/30
-  hover:bg-white/[0.06]
+  hover:bg-white/[0.10]
   hover:shadow-[0_0_35px_rgba(168,85,247,0.18)]
+
+  before:absolute
+  before:inset-0
+  before:bg-gradient-to-b
+  before:from-white/[0.08]
+  before:to-transparent
+  before:opacity-40
+  before:pointer-events-none
+
   transition-all
   duration-300
   group
@@ -464,7 +477,7 @@ transition={{
   className="
     text-[15px]
     font-semibold
-    text-white/90
+    text-white
     whitespace-nowrap
   "
 >
