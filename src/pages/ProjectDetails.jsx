@@ -280,198 +280,42 @@ const resetGlow = () => {
 />
 
         </motion.div>
+{/* Project Overview */}
+<div
+  className="
+    relative
+    mt-32
+    grid
+    lg:grid-cols-[1.4fr_0.8fr]
+    gap-20
+    items-start
+  "
+>
 
-        {/* Content Grid */}
-        <div
-          className="
-            grid
-            lg:grid-cols-3
-            gap-12
-            mt-20
-          "
-        >
+  {/* Background Text */}
+  <div
+    className="
+      absolute
+      -top-24
+      left-0
+      text-[120px]
+      md:text-[220px]
+      font-black
+      leading-none
+      text-white/[0.03]
+      pointer-events-none
+      select-none
+    "
+  >
+    {project.title.split(' ')[0]}
+  </div>
 
-          {/* Left Content */}
-          <div className="lg:col-span-2">
+  {/* Left */}
+  <motion.div
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              viewport={{
-                once: true,
-              }}
-            >
-
-              <h2
-                className="
-                  text-3xl
-                  font-bold
-                "
-              >
-                Project Overview
-              </h2>
-
-              <p
-                className="
-                  mt-6
-                  text-white/80
-                  leading-9
-                  text-lg
-                "
-              >
-                {project.content}
-              </p>
-
-            </motion.div>
-
-          </div>
-
-          {/* Sidebar */}
-          <div>
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              viewport={{
-                once: true,
-              }}
-
-              className="
-                sticky
-                top-24
-                rounded-[32px]
-                border
-                border-white/10
-                bg-white/5
-                backdrop-blur-2xl
-                p-8
-              "
-            >
-
-              {/* Stack */}
-              <div>
-
-                <h3
-                  className="
-                    text-xl
-                    font-bold
-                  "
-                >
-                  Tech Stack
-                </h3>
-
-                <div
-                  className="
-                    flex
-                    flex-wrap
-                    gap-3
-                    mt-6
-                  "
-                >
-
-                  {project.tech.map((tech, index) => (
-
-                    <div
-                      key={index}
-                      className="
-                        px-4
-                        py-2
-                        rounded-xl
-                        border
-                        border-white/10
-                        bg-white/5
-                        text-sm
-                        text-white/90
-                      "
-                    >
-                      {tech}
-                    </div>
-
-                  ))}
-
-                </div>
-
-              </div>
-
-              {/* Buttons */}
-              <div
-                className="
-                  flex
-                  flex-col
-                  gap-4
-                  mt-10
-                "
-              >
-
-                <a
-                  href={project.live}
-                  className="
-                    text-center
-                    px-6
-                    py-4
-                    rounded-2xl
-                    bg-gradient-to-r
-                    from-purple-500
-                    to-cyan-500
-                    font-semibold
-                    shadow-xl
-                  "
-                >
-                  Live Preview
-                </a>
-
-                <a
-                  href={project.github}
-                  className="
-                    text-center
-                    px-6
-                    py-4
-                    rounded-2xl
-                    border
-                    border-white/10
-                    bg-white/5
-                    hover:bg-white/10
-                    transition
-                  "
-                >
-                  GitHub Repository
-                </a>
-
-              </div>
-
-              
-
-            </motion.div>
-
-          </div>
-
-
-
-        </div>
-
-{/* Screenshots */}
-<div className="mt-32">
-
-  <motion.h2
     initial={{
       opacity: 0,
-      y: 30,
+      y: 80,
     }}
 
     whileInView={{
@@ -479,19 +323,383 @@ const resetGlow = () => {
       y: 0,
     }}
 
+    transition={{
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+
     viewport={{
-      once: true,
+      amount: 0.2,
+    }}
+
+    className="relative z-10"
+  >
+
+    <p
+      className="
+        uppercase
+        tracking-[0.35em]
+        text-sm
+        text-purple-400
+        mb-6
+      "
+    >
+      PROJECT OVERVIEW
+    </p>
+
+    <h2
+      className="
+        text-5xl
+        md:text-7xl
+        font-extrabold
+        tracking-[-0.05em]
+        leading-none
+      "
+    >
+
+      <span
+        className="
+          bg-gradient-to-r
+          from-white
+          via-white
+          to-purple-300
+          bg-clip-text
+          text-transparent
+        "
+      >
+        Building AI
+      </span>
+
+      <br />
+
+      <span className="text-white/30">
+        Video Automation
+      </span>
+
+    </h2>
+
+    <p
+      className="
+        mt-12
+        text-xl
+        md:text-2xl
+        leading-[2]
+        text-white/75
+        max-w-4xl
+        font-light
+        tracking-[-0.02em]
+      "
+    >
+      {project.content}
+    </p>
+
+  </motion.div>
+
+  {/* Sidebar */}
+  <motion.div
+
+    initial={{
+      opacity: 0,
+      y: 100,
+    }}
+
+    whileInView={{
+      opacity: 1,
+      y: 0,
+    }}
+
+    transition={{
+      duration: 1,
+      delay: 0.1,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+
+    viewport={{
+      amount: 0.2,
     }}
 
     className="
-      text-4xl
-      font-bold
-      mb-16
-      text-center
+      relative
+      overflow-hidden
+      rounded-[40px]
+      border
+      border-white/10
+      bg-white/[0.04]
+      backdrop-blur-2xl
+      p-8
+      sticky
+      top-28
     "
   >
-    Screenshots
-  </motion.h2>
+
+    {/* Reflection */}
+    <div
+      className="
+        absolute
+        inset-0
+        bg-gradient-to-b
+        from-white/[0.08]
+        to-transparent
+        pointer-events-none
+      "
+    />
+
+    {/* Stack */}
+    <div className="relative z-10">
+
+      <p
+        className="
+          uppercase
+          tracking-[0.25em]
+          text-xs
+          text-white/40
+          mb-5
+        "
+      >
+        TECHNOLOGIES
+      </p>
+
+      <div
+        className="
+          flex
+          flex-wrap
+          gap-3
+        "
+      >
+
+        {project.tech.map((tech, index) => (
+
+          <div
+            key={index}
+
+            className="
+              px-5
+              py-3
+              rounded-2xl
+              border
+              border-white/10
+              bg-white/[0.04]
+              text-white/90
+              backdrop-blur-xl
+            "
+          >
+            {tech}
+          </div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+    {/* Buttons */}
+    <div
+      className="
+        relative
+        z-10
+        flex
+        flex-col
+        gap-5
+        mt-12
+      "
+    >
+
+      <a
+        href={project.live}
+
+        className="
+          relative
+          overflow-hidden
+          group
+          rounded-2xl
+          bg-gradient-to-r
+          from-purple-500
+          via-fuchsia-500
+          to-cyan-500
+          py-5
+          text-center
+          text-lg
+          font-semibold
+          transition-all
+          duration-500
+          hover:scale-[1.03]
+        "
+      >
+
+        Live Preview
+
+        <div
+          className="
+            absolute
+            inset-0
+            translate-x-[-100%]
+            bg-gradient-to-r
+            from-transparent
+            via-white/30
+            to-transparent
+            transition-transform
+            duration-1000
+            group-hover:translate-x-[100%]
+          "
+        />
+
+      </a>
+
+      <a
+        href={project.github}
+
+        className="
+          rounded-2xl
+          border
+          border-white/10
+          bg-white/[0.04]
+          py-5
+          text-center
+          text-lg
+          text-white/90
+          transition-all
+          duration-300
+          hover:bg-white/[0.08]
+        "
+      >
+        GitHub Repository
+      </a>
+{/* Navigation */}
+<div
+  className="
+    mt-6
+    pt-6
+    border-t
+    border-white/10
+    flex
+    flex-col
+    gap-4
+  "
+>
+
+  <button
+    onClick={() =>
+      document
+        .getElementById('process')
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        })
+    }
+
+    className="
+      rounded-2xl
+      border
+      border-white/10
+      bg-white/[0.03]
+      py-4
+      text-white/80
+      transition-all
+      duration-300
+      hover:bg-white/[0.08]
+      hover:text-white
+    "
+  >
+    View Development Process
+  </button>
+
+  <button
+    onClick={() =>
+      document
+        .getElementById('challenges')
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        })
+    }
+
+    className="
+      rounded-2xl
+      border
+      border-white/10
+      bg-white/[0.03]
+      py-4
+      text-white/80
+      transition-all
+      duration-300
+      hover:bg-white/[0.08]
+      hover:text-white
+    "
+  >
+    View Challenges & Solutions
+  </button>
+
+</div>
+    </div>
+
+  </motion.div>
+
+</div>
+
+         
+{/* Screenshots */}
+<div className="mt-32">
+
+  <motion.div
+
+  initial={{
+    opacity: 0,
+    y: 60,
+  }}
+
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+
+  viewport={{
+    amount: 0.3,
+  }}
+
+  className="mb-20 text-center"
+>
+
+  <p
+    className="
+      uppercase
+      tracking-[0.35em]
+      text-sm
+      text-purple-400
+      mb-6
+    "
+  >
+    VISUAL SHOWCASE
+  </p>
+
+  <h2
+    className="
+      text-5xl
+      md:text-7xl
+      font-extrabold
+      tracking-[-0.05em]
+      leading-none
+    "
+  >
+
+    <span
+      className="
+        bg-gradient-to-r
+        from-white
+        via-white
+        to-purple-300
+        bg-clip-text
+        text-transparent
+      "
+    >
+      Screenshots
+    </span>
+
+  </h2>
+
+</motion.div>
 
   <ScreenshotCarousel
     images={project.screenshots}
@@ -502,41 +710,68 @@ const resetGlow = () => {
 {/* Features */}
 <div className="mt-32">
 
-  <motion.h2
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
+  <motion.div
 
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
+  initial={{
+    opacity: 0,
+    y: 60,
+  }}
 
-    viewport={{
-      once: true,
-    }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
 
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+
+  viewport={{
+    amount: 0.3,
+  }}
+
+  className="mb-20"
+>
+
+  <p
     className="
-      text-4xl
-md:text-5xl
-font-extrabold
-tracking-[-0.04em]
-      mb-12
+      uppercase
+      tracking-[0.35em]
+      text-sm
+      text-purple-400
+      mb-6
     "
   >
+    CORE CAPABILITIES
+  </p>
+
+  <h2
+    className="
+      text-5xl
+      md:text-7xl
+      font-extrabold
+      tracking-[-0.05em]
+      leading-none
+    "
+  >
+
     <span
-  className="
-    bg-gradient-to-r
-    from-white
-    to-purple-300
-    bg-clip-text
-    text-transparent
-  "
->
-  Key Features
-</span>
-  </motion.h2>
+      className="
+        bg-gradient-to-r
+        from-white
+        via-white
+        to-purple-300
+        bg-clip-text
+        text-transparent
+      "
+    >
+      Key Features
+    </span>
+
+  </h2>
+
+</motion.div>
 
   <div
     className="
@@ -633,114 +868,230 @@ tracking-[-0.04em]
 
 </div>
 
-{/* Process */}
-<div className="mt-32 max-w-4xl">
-
-  <motion.h2
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
-
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-
-    viewport={{
-      once: true,
-    }}
-
-    className="
-      text-4xl
-md:text-5xl
-font-extrabold
-tracking-[-0.04em]
-      mb-12
-    "
-  >
-    <span
-  className="
-    bg-gradient-to-r
-    from-white
-    to-purple-300
-    bg-clip-text
-    text-transparent
-  "
+{/* Development Process */}
+<div
+  id="process"
+  className="mt-32"
 >
-    Development Process
-    </span>
-  </motion.h2>
 
-  <motion.p
-    initial={{
-      opacity: 0,
-      y: 40,
-    }}
+  <motion.div
 
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
+  initial={{
+    opacity: 0,
+    y: 60,
+  }}
 
-    viewport={{
-      once: true,
-    }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
 
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+
+  viewport={{
+    amount: 0.3,
+  }}
+
+  className="mb-20"
+>
+
+  <p
     className="
-      text-lg
-      text-white/80
-      leading-9
+      uppercase
+      tracking-[0.35em]
+      text-sm
+      text-purple-400
+      mb-6
     "
   >
-    {project.process}
-  </motion.p>
+    WORKFLOW BREAKDOWN
+  </p>
+
+  <h2
+    className="
+      text-5xl
+      md:text-7xl
+      font-extrabold
+      tracking-[-0.05em]
+      leading-none
+    "
+  >
+
+    <span
+      className="
+        bg-gradient-to-r
+        from-white
+        via-white
+        to-purple-300
+        bg-clip-text
+        text-transparent
+      "
+    >
+      Development
+    </span>
+
+    <br />
+
+    <span className="text-white/30">
+      Process
+    </span>
+
+  </h2>
+
+</motion.div>
+
+  <div
+    className="
+      relative
+      border-l
+      border-white/10
+      ml-4
+      space-y-10
+    "
+  >
+
+    {project.process.map((step, index) => (
+
+      <motion.div
+        key={index}
+
+        initial={{
+  opacity: 0,
+  scale: 0.92,
+  y: 80,
+}}
+
+whileInView={{
+  opacity: 1,
+  scale: 1,
+  y: 0,
+}}
+
+transition={{
+  duration: 0.8,
+  delay: index * 0.08,
+  ease: [0.22, 1, 0.36, 1],
+}}
+
+viewport={{
+  amount: 0.25,
+}}
+        className="
+          relative
+          pl-10
+        "
+      >
+
+        {/* Timeline Dot */}
+        <div
+          className="
+            absolute
+            -left-[14px]
+            top-2
+            w-6
+            h-6
+            rounded-full
+            bg-gradient-to-r
+            from-purple-500
+            to-cyan-500
+            shadow-[0_0_20px_rgba(168,85,247,0.6)]
+          "
+        />
+
+        {/* Card */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            rounded-[32px]
+            border
+            border-white/10
+            bg-white/[0.04]
+            backdrop-blur-2xl
+            p-8
+          "
+        >
+
+          {/* Reflection */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-white/[0.08]
+              to-transparent
+              pointer-events-none
+            "
+          />
+
+          {/* Step Number */}
+          <div
+            className="
+              relative
+              z-10
+              text-sm
+              tracking-[0.3em]
+              uppercase
+              text-purple-400
+              mb-5
+            "
+          >
+            STEP 0{index + 1}
+          </div>
+
+          {/* Title */}
+          <h3
+            className="
+              relative
+              z-10
+              text-2xl
+              md:text-3xl
+              font-bold
+              text-white
+            "
+          >
+            {step.title}
+          </h3>
+
+          {/* Description */}
+          <p
+            className="
+              relative
+              z-10
+              mt-6
+              text-lg
+              leading-9
+              text-white/80
+            "
+          >
+            {step.description}
+          </p>
+
+        </div>
+
+      </motion.div>
+
+    ))}
+
+  </div>
 
 </div>
 
-{/* Challenges */}
-<div className="mt-32 max-w-4xl mb-24">
-
-  <motion.h2
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
-
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-
-    viewport={{
-      once: true,
-    }}
-
-    className="
-      text-4xl
-md:text-5xl
-font-extrabold
-tracking-[-0.04em]
-      mb-12
-    "
-  >
-    <span
-  className="
-    bg-gradient-to-r
-    from-white
-    to-purple-300
-    bg-clip-text
-    text-transparent
-  "
+{/* Challenges & Solutions */}
+<div
+  id="challenges"
+  className="mt-40 mb-32"
 >
-    Challenges & Solutions
-    </span>
-  </motion.h2>
 
-  <motion.p
+  {/* Heading */}
+  <motion.div
+
     initial={{
       opacity: 0,
-      y: 40,
+      y: 60,
     }}
 
     whileInView={{
@@ -748,18 +1099,236 @@ tracking-[-0.04em]
       y: 0,
     }}
 
-    viewport={{
-      once: true,
+    transition={{
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
     }}
 
-    className="
-      text-lg
-      text-white/80
-      leading-9
-    "
+    viewport={{
+      amount: 0.3,
+    }}
+
+    className="mb-24"
   >
-    {project.challenges}
-  </motion.p>
+
+    <p
+      className="
+        uppercase
+        tracking-[0.35em]
+        text-sm
+        text-purple-400
+        mb-6
+      "
+    >
+      ENGINEERING JOURNEY
+    </p>
+
+    <h2
+      className="
+        text-5xl
+        md:text-7xl
+        font-extrabold
+        tracking-[-0.05em]
+        leading-none
+      "
+    >
+
+      <span
+        className="
+          bg-gradient-to-r
+          from-white
+          via-white
+          to-purple-300
+          bg-clip-text
+          text-transparent
+        "
+      >
+        Challenges
+      </span>
+
+      <br />
+
+      <span
+        className="
+          text-white/30
+        "
+      >
+        & Solutions
+      </span>
+
+    </h2>
+
+  </motion.div>
+
+  {/* Timeline */}
+  <div className="space-y-24">
+
+    {project.challenges.map((item, index) => (
+
+      <motion.div
+        key={index}
+
+        initial={{
+          opacity: 0,
+          y: 120,
+        }}
+
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+
+        transition={{
+          duration: 1,
+          delay: index * 0.08,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+
+        viewport={{
+          amount: 0.2,
+        }}
+
+        className="
+          relative
+          grid
+          lg:grid-cols-[180px_1fr]
+          gap-10
+          items-stretch
+        "
+      >
+
+        {/* Huge Number */}
+        <div
+          className="
+            sticky
+            top-24
+            text-5xl
+            md:text-7xl
+            font-black
+            leading-none
+            text-white/10
+          "
+        >
+          0{index + 1}
+        </div>
+
+        {/* Content */}
+        <div
+          className="
+            relative
+            h-full
+            overflow-hidden
+            rounded-[40px]
+            border
+            border-white/10
+            bg-white/[0.03]
+            backdrop-blur-2xl
+            p-8
+            md:p-12
+          "
+        >
+
+          {/* Reflection */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-white/[0.06]
+              to-transparent
+              pointer-events-none
+            "
+          />
+
+          {/* Title */}
+          <h3
+            className="
+              relative
+              z-10
+              text-3xl
+              md:text-4xl
+              font-bold
+              tracking-[-0.03em]
+              text-white
+            "
+          >
+            {item.title}
+          </h3>
+
+          {/* Divider */}
+          <div
+            className="
+              mt-8
+              h-px
+              bg-gradient-to-r
+              from-white/20
+              to-transparent
+            "
+          />
+
+          {/* Challenge */}
+          <div className="mt-10">
+
+            <div
+              className="
+                text-red-300
+                uppercase
+                tracking-[0.25em]
+                text-sm
+                mb-5
+              "
+            >
+              Challenge
+            </div>
+
+            <p
+              className="
+                text-xl
+                leading-10
+                text-white/75
+              "
+            >
+              {item.challenge}
+            </p>
+
+          </div>
+
+          {/* Solution */}
+          <div className="mt-14">
+
+            <div
+              className="
+                text-cyan-300
+                uppercase
+                tracking-[0.25em]
+                text-sm
+                mb-5
+              "
+            >
+              Solution
+            </div>
+
+            <p
+              className="
+                text-xl
+                leading-10
+                text-white
+              "
+            >
+              {item.solution}
+            </p>
+
+          </div>
+
+        </div>
+
+      </motion.div>
+
+    ))}
+
+  </div>
+
+
 
 </div>
 
