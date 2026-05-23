@@ -12,6 +12,7 @@ import { motion } from 'framer-motion'
 
 import projects from '../data/projects'
 import ScreenshotCarousel from '../components/ScreenshotCarousel'
+import CursorGlow from '../components/CursorGlow'
 
 function ProjectDetails() {
 
@@ -86,7 +87,7 @@ const resetGlow = () => {
         overflow-x-hidden
       "
     >
-
+<CursorGlow />
       {/* Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
 
@@ -247,8 +248,8 @@ const resetGlow = () => {
       radial-gradient(
         circle at
         ${glow.x}% ${glow.y}%,
-        rgba(255,255,255,0.22),
-        transparent 35%
+        rgba(255,255,255,0.05),
+        transparent 50%
       )
     `,
   }}
@@ -694,7 +695,7 @@ const resetGlow = () => {
         text-transparent
       "
     >
-      Screenshots
+      Preview Hub
     </span>
 
   </h2>

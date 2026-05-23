@@ -1,5 +1,14 @@
 import project1 from '../assets/projects/project1.jpg'
 import project2 from '../assets/projects/project2.jpg'
+import mainui from '../assets/projects/asfxstudeiomainui.png'
+
+import studiosc1 from '../assets/projects/studiosc1.png'
+import studiosc2 from '../assets/projects/studiosc4.png'
+import studiosc3 from '../assets/projects/studiosc2.png'
+import studiosc4 from '../assets/projects/studiosc3.png'
+import studiosc5 from '../assets/projects/studiosc5.png'
+import studiosc6 from '../assets/projects/studiosc6.png'
+
 
 const projects = [
 
@@ -11,7 +20,7 @@ const projects = [
     description:
       'AI-powered subtitle generation and speech-based video editing desktop application.',
 
-    image: project1,
+    image: mainui,
 
     tech: [
   'React',
@@ -26,7 +35,7 @@ const projects = [
   'OpenAI API',
 ],
 
-    github: '#',
+    github: 'https://github.com/asfxlabs/asfx-studio/releases/tag/v1.0.0',
 
     live: '#',
 
@@ -46,12 +55,12 @@ Built using Electron, Python, FFmpeg, and OpenAI Whisper, the project helped aut
   ],
 
   screenshots: [
-  project1,
-  project2,
-  project1,
-  project2,
-  project1,
-  project2,
+  studiosc1,
+  studiosc2,
+  studiosc3,
+  studiosc4,
+  studiosc5,
+  studiosc6,
 ],
 
   process: [

@@ -287,8 +287,8 @@ touch-pan-y
         radial-gradient(
           circle at
           ${glow.x}% ${glow.y}%,
-          rgba(255,255,255,0.22),
-          transparent 45%
+          rgba(255,255,255,0.05),
+          transparent 55%
         )
       `,
     }}
